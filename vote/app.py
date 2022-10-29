@@ -8,6 +8,7 @@ import logging
 
 option_a = os.getenv('OPTION_A', "Cats")
 option_b = os.getenv('OPTION_B', "Dogs")
+redis_password = os.getenv('REDIS_PASSWORD',"Dogs")
 hostname = socket.gethostname()
 
 app = Flask(__name__)
@@ -25,7 +26,7 @@ def get_redis():
 def hello():
     voter_id = request.cookies.get('voter_id')
     if not voter_id:
-        voter_id = hex(random.getrandbits(64))[2:-1]
+        voter_id = hex(random.getrandbits(64))[2:-1]s
 
     vote = None
 
